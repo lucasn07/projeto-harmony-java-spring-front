@@ -13,25 +13,26 @@ function validar() {
                 'Content-type': 'application/json'
             },
             method: "POST",
-            // Alterar VAR CHAR 200 CAMPO SENHA BANCO DE DADOS
-            /* ainda precisa ser feito alterações no backend para funcionar, a principio o back-end está pedindo ID para validação */
             
-            body: JSON.stringify({
+             body: JSON.stringify({
                 email: email.value,
                 senha: senha.value
             })
         })
         .then(function (res) { console.log(res) })
-        .catch(function (res) { console.log(res) })
+        .catch(function (res) { console.log(res) })  
 };
+/*
+VALIDAÇÃO FUNCIONANDO PORÉM PRECISO APRENDER A TRATAR ELA DE ACORDO COM O RETORNO DE STATUS.
+TRATAR OS STATUS 401, 500, E O STATUS 200(OK) PARA REDIRECIONAR PARA A PAGINA CORRETA.
+
+*/
 
 function limpar () {
     email.value = ""
     senha.value = ""
           
 };
-
-
 
 formulario.addEventListener('submit', function (event){
     event.preventDefault();
