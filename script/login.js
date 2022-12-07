@@ -19,8 +19,20 @@ function validar() {
                 senha: senha.value
             })
         })
-        .then(function (res) { console.log(res) })
-        .catch(function (res) { console.log(res) })  
+        .then(function (res) { 
+            console.log(res)
+
+            if (res.status !== 200) {
+                alert("Não foi possivel efetuar login: 'Verifique se seu e-mail ou senha estão corretos !' ")
+                    
+            } else {
+                alert("Logado !!!")    
+            }
+             
+        })
+        .catch(function (res) { 
+            console.log(res)
+        })  
 };
 /*
 VALIDAÇÃO FUNCIONANDO PORÉM PRECISO APRENDER A TRATAR ELA DE ACORDO COM O RETORNO DE STATUS.
