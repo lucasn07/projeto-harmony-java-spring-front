@@ -21,7 +21,7 @@ function validar() {
         })
         .then(function (res) { 
             console.log(res)
-
+            
             if (res.status !== 200) {
                 alert("Não foi possivel efetuar login: 'Verifique se seu e-mail ou senha estão corretos !' ")
                     

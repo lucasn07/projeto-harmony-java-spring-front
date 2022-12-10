@@ -26,8 +26,8 @@ function cadastrar() {
                 apartamento: apto.value
             })
         })
-        .then(function (res) { console.log(res) })
-        .catch(function (res) { console.log(res) })
+        .then(function (res) { console.log(res) }) //fazer tratamento de erro de acordo com o retorno, se der certo manter e encaminhar.
+        .catch(function (res) { console.log(res) })//fazer tratamento derro de acordo com retorno se for 500 ou 400 fazer tratamento adequado para cada erro retornado.
 };
 
 function limpar () {
@@ -44,6 +44,6 @@ formulario.addEventListener('submit', function (event){
     event.preventDefault();
     
     cadastrar();
-    alert("Cadastro realizado com sucesso!")
-    return window.location.replace("index.html");
+    //alert("Cadastro realizado com sucesso!")
+    //return window.location.replace("index.html");
 });
