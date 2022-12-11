@@ -26,8 +26,18 @@ function cadastrar() {
                 apartamento: apto.value
             })
         })
-        .then(function (res) { console.log(res) }) //fazer tratamento de erro de acordo com o retorno, se der certo manter e encaminhar.
-        .catch(function (res) { console.log(res) })//fazer tratamento derro de acordo com retorno se for 500 ou 400 fazer tratamento adequado para cada erro retornado.
+        .then (function (res) {  
+            if (res.status == 201) {
+                alert("Cadastro realizado com sucesso !")
+            } else {
+                if (res.status == 500) {
+                    alert("Email já cadastrado, por favor digite um novo email!")
+                } else if (res.status == 400) {
+                    alert("Por favor verifique todos os campos do cadastro e tente novamente!")
+                }
+            }
+        }) //fazer tratamento de erro de acordo com o retorno, se der certo manter e encaminhar.
+        .catch (function (res) { })//fazer tratamento derro de acordo com retorno se for 500 ou 400 fazer tratamento adequado para cada erro retornado.
 };
 
 function limpar () {
