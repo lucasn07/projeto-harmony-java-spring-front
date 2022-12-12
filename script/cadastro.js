@@ -29,11 +29,12 @@ function cadastrar() {
         .then (function (res) {  
             if (res.status == 201) {
                 alert("Cadastro realizado com sucesso !")
+                window.location.replace("index.html");
             } else {
-                if (res.status == 500) {
-                    alert("Email já cadastrado, por favor digite um novo email!")
+                if (res.status == 401) {
+                    alert("Email já está cadastrado, por favor digite outro email!")
                 } else if (res.status == 400) {
-                    alert("Por favor verifique todos os campos do cadastro e tente novamente!")
+                    alert("Por favor preencha todos os campos do cadastro e tente novamente!")
                 }
             }
         }) //fazer tratamento de erro de acordo com o retorno, se der certo manter e encaminhar.
@@ -51,9 +52,8 @@ function limpar () {
 
 
 formulario.addEventListener('submit', function (event){
-    event.preventDefault();
     
+    event.preventDefault();
     cadastrar();
-    //alert("Cadastro realizado com sucesso!")
-    //return window.location.replace("index.html");
+    
 });
