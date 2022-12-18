@@ -19,27 +19,33 @@ function validar() {
                 senha: senha.value
             })
         })
-        .then(function (res) { 
-            console.log(res)
-            
-            if (res.status !== 200) {
-                alert(" Não foi possivel efetuar login: Verifique se seu e-mail ou senha estão corretos ! ")
-                    
-            } else {
-                alert("Logado !!!")    
+        .then(res  => { 
+            if (res.status == 401) {
+                alert("Email ou Senha incorretos, verifique-os e tente novamente!")
+            } else if (res.status == 400) {
+                alert("Preencha todos os campos e tente novamente!")
             }
-             
+            res.json().then(data => {
+                if(res.status == 200 && data !== null) { //Redirecionar de acordo com id acesso && autenticar a sessão da maneira correta 
+                    switch(data) {
+                        case 3: alert("Login Sindico")
+                        console.log(data)
+                        console.log(res.status)
+                        break
+                        case 2: alert("Login Porteiro")
+                        console.log(data)
+                        console.log(res.status)
+                        break
+                        case 1: alert("Login Morador!")
+                        console.log(data)
+                        console.log(res.status)
+                        break
+                    }  
+                }
+            })
+            .catch (function (res) { })
         })
-        .catch(function (res) { 
-            console.log(res)
-        })  
 };
-/*
-VALIDAÇÃO FUNCIONANDO PORÉM PRECISO APRENDER A TRATAR ELA DE ACORDO COM O RETORNO DE STATUS.
-TRATAR OS STATUS 401, 500, E O STATUS 200(OK) PARA REDIRECIONAR PARA A PAGINA CORRETA.
-
-*/
-
 function limpar () {
     email.value = ""
     senha.value = ""
