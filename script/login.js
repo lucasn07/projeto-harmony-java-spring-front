@@ -31,6 +31,7 @@ function validar() {
                         case 3: alert("Login Sindico")
                         console.log(data)
                         console.log(res.status)
+                        window.location.replace("painel_sindico.html");
                         break
                         case 2: alert("Login Porteiro")
                         console.log(data)
